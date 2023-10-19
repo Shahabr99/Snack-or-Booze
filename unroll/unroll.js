@@ -1,40 +1,43 @@
 function unroll(squareArray) {
     const result = [];
+
   
-    while (squareArray.length > 0) {
-      // Move from left to right (first row)\
-      console.log(...squareArray.shift())
-      result.push(...squareArray.shift());
-  
-      // Move from top to bottom (last column of each row)
-      for (let i = 0; i < squareArray.length; i++) {
-        if (squareArray[i].length > 0) {
-          result.push(squareArray[i].pop());
+    while(squareArray.length > 0) {
+
+      // Moving from left to right
+      result.push(...squareArray.shift())
+    
+
+      // Moving from top to bottom
+      for(let i = 0; i < squareArray.length; i++) {
+        if(squareArray[i].length > 0) {
+          result.push(squareArray[i].pop())
+        }else{
+          return null
         }
       }
-  
-      // Move from right to left (last row, reversed)
-      if (squareArray.length > 0) {
-        result.push(...squareArray.pop().reverse());
+
+      // Moving from right to left
+      if(squareArray.length > 0) {
+        result.push(...squareArray.pop().reverse())
+      }else{
+        return null
       }
-  
-      // Move from bottom to top (first column of each row, reversed)
-      for (let i = squareArray.length - 1; i >= 0; i--) {
-        if (squareArray[i].length > 0) {
-          result.push(squareArray[i].shift());
+
+      // Moving from bottom to top
+      for(let i = squareArray.length - 1; i >= 0; i--) {
+        if(squareArray.length > 0) {
+          result.push(squareArray[i].shift())
+        }else{
+          return null
         }
       }
     }
-  
-    return result;
+    return result
+    
   }
   
 
-unroll([
-  [1, 2, 3, 4],
-  [5, 6, 7, 8],
-  [9, 10, 11, 12],
-  [13, 14, 15, 16]
-])
 
-// module.exports = unroll;
+
+module.exports = unroll;
