@@ -7,19 +7,26 @@ import NavBar from "./NavBar";
 import { Route, Switch } from "react-router-dom";
 import Menu from "./FoodMenu";
 import Snack from "./FoodItem";
+import Drinks from "./DrinkMenu";
+import Item from "./DrinkItem"
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [snacks, setSnacks] = useState([]);
+  const [drinks, setDrinks] = useState([])
 
   useEffect(() => {
     async function getSnacks() {
       let snacks = await SnackOrBoozeApi.getSnacks();
+      let drinks = await SnackOrBoozeApi.getDrinks();
       setSnacks(snacks);
+      setDrinks(drinks)
       setIsLoading(false);
     }
     getSnacks();
   }, []);
+
+  
 
   if (isLoading) {
     return <p>Loading &hellip;</p>;
@@ -39,6 +46,12 @@ function App() {
             </Route>
             <Route path="/snacks/:id">
               <Snack items={snacks} cantFind="/snacks" />
+            </Route>
+            <Route path="/drinks">
+              <Drinks drinks={drinks} />
+            </Route>
+            <Route path="/drinks/:id">
+              <Item drinks={drinks} cantFind="/drinks" />
             </Route>
             <Route>
               <p>Hmmm. I can't seem to find what you want.</p>
