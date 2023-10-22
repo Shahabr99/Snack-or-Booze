@@ -1,6 +1,7 @@
 {
   "drinks": [
     {
+      "type": "drink",
       "id": "martini",
       "name": "Martini",
       "description": "An ice-cold, refreshing classic.",
@@ -8,6 +9,7 @@
       "serve": "Serve very cold, straight up."
     },
     {
+      "type": "drink",
       "id": "negroni",
       "name": "Negroni",
       "description": "A nice drink for a late night conversation.",
@@ -15,6 +17,7 @@
       "serve": "Serve cold, either on the rocks or straight up."
     },
     {
+      "type": "drink",
       "id": "gin-and-tonic",
       "name": "Gin and Tonic",
       "description": "Like regular tonic, but with gin.",
@@ -22,6 +25,7 @@
       "serve": "Serve in a tall glass over ice, garnished with a lime wedge."
     },
     {
+      "type": "drink",
       "id": "diet-coke",
       "name": "Diet Coke",
       "description": "Crisp!",
@@ -31,6 +35,7 @@
   ],
   "snacks": [
     {
+      "type": "snack",
       "id": "nachos",
       "name": "Nachos",
       "description": "An American classic!",
@@ -38,6 +43,7 @@
       "serve": "Serve in a hand-thrown ceramic bowl, garnished with canned black olives"
     },
     {
+      "type": "snack",
       "id": "hummus",
       "name": "Hummus",
       "description": "Sure to impress your vegan friends!",
@@ -45,6 +51,7 @@
       "serve": "Place unceremoniously on the table, along with pita bread."
     },
     {
+      "type": "snack",
       "id": "arugula-and-walnut-salad",
       "name": "Arugula and Walnut Salad",
       "description": "Tart and delicious.",

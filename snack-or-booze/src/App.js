@@ -6,9 +6,7 @@ import SnackOrBoozeApi from "./Api";
 import NavBar from "./NavBar";
 import { Route, Switch } from "react-router-dom";
 import Menu from "./FoodMenu";
-import Snack from "./FoodItem";
-import DrinkMenu from "./DrinkMenu";
-import Drink from "./DrinkItem"
+import FoodItem from "./FoodItem";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,13 +19,10 @@ function App() {
       let drinks = await SnackOrBoozeApi.getDrinks();
       setSnacks(snacks);
       setDrinks(drinks);
-      console.log(drinks);
       setIsLoading(false);
     }
     getSnacks();
   }, []);
-
-  
 
   if (isLoading) {
     return <p>Loading &hellip;</p>;
@@ -43,19 +38,19 @@ function App() {
               <Home snacks={snacks} />
             </Route>
             <Route exact path="/snacks">
-              <Menu snacks={snacks} title="Snacks" />
+              <Menu items={snacks} title="Snacks" />
+            </Route>
+            <Route exact path="/drinks">
+              <Menu items={drinks} title="Drinks"/>
             </Route>
             <Route path="/snacks/:id">
-              <Snack items={snacks} cantFind="/snacks" />
-            </Route>
-            <Route path="/drinks">
-              <DrinkMenu drinks={drinks} />
+              <FoodItem items={snacks} cantFind="/snacks" />
             </Route>
             <Route path="/drinks/:id">
-              <Drink items={drinks} cantFind="/drinks" />
+              <FoodItem items={drinks} cantFind="/drinks"/>
             </Route>
             <Route>
-              <p>Hmmm. I can't seem to find what you want.</p>
+              <p className="error">Hmmm. I can't seem to find what you want.</p>
             </Route>
           </Switch>
         </main>
