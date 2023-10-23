@@ -24,6 +24,7 @@ function FoodMenu({ items }) {
             bulk of the card's content.
           </CardText>
           <ListGroup>
+            {/* based on the type of item, will add a link to the menu.  */}
             {items.map(item => (
               <Link to={`/${item.type === 'drink' ? 'drinks':'snacks'}/${item.id}`} key={item.id}>
                 <ListGroupItem>{item.name}</ListGroupItem>

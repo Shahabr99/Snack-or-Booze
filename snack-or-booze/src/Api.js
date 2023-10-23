@@ -11,16 +11,17 @@ const BASE_API_URL = "http://localhost:5000";
 
 class SnackOrBoozeApi {
 
+  // Get the snacks from the database
   static async getSnacks() {
     const result = await axios.get(`${BASE_API_URL}/snacks`);
     return result.data;
   }
 
+  // Gets the drinks from the database
   static async getDrinks() {
     const res = await axios.get(`${BASE_API_URL}/drinks`);
     return res.data;
   }
-
 }
 
 export default SnackOrBoozeApi;

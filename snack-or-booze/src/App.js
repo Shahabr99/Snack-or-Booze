@@ -50,6 +50,9 @@ function App() {
               <FoodItem items={drinks} cantFind="/drinks"/>
             </Route>
             <Route>
+              <AddItem items={items} />
+            </Route>
+            <Route>
               <p className="error">Hmmm. I can't seem to find what you want.</p>
             </Route>
           </Switch>
