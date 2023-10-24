@@ -7,6 +7,7 @@ import NavBar from "./NavBar";
 import { Route, Switch } from "react-router-dom";
 import Menu from "./FoodMenu";
 import FoodItem from "./FoodItem";
+import AddItem from "./AddItem";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -49,8 +50,8 @@ function App() {
             <Route path="/drinks/:id">
               <FoodItem items={drinks} cantFind="/drinks"/>
             </Route>
-            <Route>
-              <AddItem items={items} />
+            <Route path="/add">
+              <AddItem />
             </Route>
             <Route>
               <p className="error">Hmmm. I can't seem to find what you want.</p>
